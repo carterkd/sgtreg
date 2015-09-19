@@ -116,13 +116,14 @@ In cases where the convergence is difficult, try to use the option {cmd: techniq
 
 {phang}{cmd:. sgtreg y x1 x2, technique(bfgs)}{p_end}
 {phang}{cmd:. sgtreg y x1 x2, technique(bfgs) qinf}{p_end}
-{phang}{cmd:. sgtreg y x1 x2, gamma(x1) delta(x2) technique(bfgs) qinf}{p_end}
-{phang}{cmd:. sgtreg y x1 x2, gcons dcons technique(bfgs) qinf}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, technique(bfgs) qinf varadj}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, gamma(x1) delta(x2) technique(bfgs) qinf varadj}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, gcons dcons technique(bfgs) qinf varadj}{p_end}
 
 {phang}{cmd:. constraint define 1 [delta]_cons=0}{p_end}
 {phang}{cmd:. constraint define 2 [p]_cons=2}{p_end}
 
-{phang}{cmd:. sgtreg y x1 x2, gcons dcons const(1 2) technique(bfgs) qinf}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, gcons dcons const(1 2) technique(bfgs) qinf varadj}{p_end}
 
 {marker references}{...}
 {title:References}
