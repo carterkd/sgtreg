@@ -109,21 +109,22 @@ In cases where the convergence is difficult, try to use the option {cmd: techniq
 
 {phang}{cmd:. clear}{p_end}
 {phang}{cmd:. set obs 1000}{p_end}
-{phang}{cmd:. set seed 1234}{p_end}
+{phang}{cmd:. set seed 5678}{p_end}
 {phang}{cmd:. gen x1 = rnormal(0,1)}{p_end}
 {phang}{cmd:. gen x2 = runiform()}{p_end}
 {phang}{cmd:. gen y = 1 + 2*x1 + 3*x2 + rnormal(0,1)}{p_end}
 
+{phang}{cmd:. sgtreg y x1 x2}{p_end}
 {phang}{cmd:. sgtreg y x1 x2, technique(bfgs)}{p_end}
-{phang}{cmd:. sgtreg y x1 x2, technique(bfgs) qinf}{p_end}
-{phang}{cmd:. sgtreg y x1 x2, technique(bfgs) qinf varadj}{p_end}
-{phang}{cmd:. sgtreg y x1 x2, gamma(x1) delta(x2) technique(bfgs) qinf varadj}{p_end}
-{phang}{cmd:. sgtreg y x1 x2, gcons dcons technique(bfgs) qinf varadj}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, qinf}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, qinf varadj}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, gamma(x2) delta(x1) qinf varadj}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, gcons dcons qinf varadj}{p_end}
 
 {phang}{cmd:. constraint define 1 [delta]_cons=0}{p_end}
 {phang}{cmd:. constraint define 2 [p]_cons=2}{p_end}
 
-{phang}{cmd:. sgtreg y x1 x2, gcons dcons const(1 2) technique(bfgs) qinf varadj}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, gcons dcons const(1 2) qinf varadj}{p_end}
 
 {marker references}{...}
 {title:References}
