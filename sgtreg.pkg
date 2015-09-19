@@ -1,0 +1,12 @@
+v 1.0
+d sgtreg Skewed Generalized T Regression Package
+d Carter Davis, University of Chicago Booth School of Business
+d Description: https://raw.githubusercontent.com/carterkd/sgtreg/master/README.md 
+p sgtreg Regression with the Skewed Generalized T Distribution
+f sgtevaluator.ado
+f sgtevaluator.sthlp
+f gedevaluator.ado
+f gedevaluator.sthlp
+f sgtreg.ado
+f sgtreg.sthlp
+
