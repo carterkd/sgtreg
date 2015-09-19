@@ -4,7 +4,7 @@ version 12.0
 		display "Replay not implemented"
 	}
 	else {
-		syntax varlist(min=1) [if] [in] [, QINFinite VARADJust GCONSonly gamma(varlist) DCONSonly delta(varlist) INITial(numlist) DIFficult TECHnique(passthru) ITERate(passthru) nolog TRace GRADient showstep HESSian SHOWTOLerance TOLerance(passthru) LTOLerance(passthru) NRTOLerance(passthru)] 
+		syntax varlist(min=1) [if] [in] [, QINFinite VARADJust GCONSonly gamma(varlist) DCONSonly delta(varlist) INITial(numlist) CONSTraints(passthru) DIFficult TECHnique(passthru) ITERate(passthru) nolog TRace GRADient showstep HESSian SHOWTOLerance TOLerance(passthru) LTOLerance(passthru) NRTOLerance(passthru)] 
 		local depvar: word 1 of `varlist'
 		local regs: list varlist - depvar
 		local gammavars `regs'
@@ -63,14 +63,14 @@ version 12.0
 			if "`varadjust'" != "" {
 				local evaluator sgtevaluatorva
 			}
-			ml model lf `evaluator' (beta: `depvar' = `regs') (gamma: `gammavars') (delta: `deltavars') /p /q if `touse', maximize `technique' init(`initial', copy) `difficult' `iterate' `log' `trace' `gradient' `showstep' `hessian' `showtolerance' `tolerance' `ltolerance' `nrtolerance'
+			ml model lf `evaluator' (beta: `depvar' = `regs') (gamma: `gammavars') (delta: `deltavars') /p /q if `touse', maximize `constraints' `technique' init(`initial', copy) `difficult' `iterate' `log' `trace' `gradient' `showstep' `hessian' `showtolerance' `tolerance' `ltolerance' `nrtolerance'
 		}
 		else {
 			local evaluator sgedevaluator
 			if "`varadjust'" != "" {
 				local evaluator sgedevaluatorva
 			}
-			ml model lf `evaluator' (beta: `depvar' = `regs') (gamma: `gammavars') (delta: `deltavars') /p if `touse', maximize `technique' init(`initial', copy) `difficult' `iterate' `log' `trace' `gradient' `showstep' `hessian' `showtolerance' `tolerance' `ltolerance' `nrtolerance'			
+			ml model lf `evaluator' (beta: `depvar' = `regs') (gamma: `gammavars') (delta: `deltavars') /p if `touse', maximize `constraints' `technique' init(`initial', copy) `difficult' `iterate' `log' `trace' `gradient' `showstep' `hessian' `showtolerance' `tolerance' `ltolerance' `nrtolerance'			
 		}
 		ml display, showeqns
 		qui ereturn list

@@ -34,6 +34,7 @@
 {synopt:{opt dcons:only}}use only constant in the delta equation{p_end}
 {synopt:{opt delta}}variable list used in the delta equation{p_end}
 {synopt:{opt init:ial}}initial values for the coefficients{p_end}
+{synopt:{opth const:raints(numlist)}}constraints by number to be applied{p_end}
 {synopt:{it:{help ml##noninteractive_maxopts:maximize_options}}}control the
 maximization process{p_end}
 {synoptline}
@@ -53,7 +54,7 @@ maximization process{p_end}
 {dlgtab:Main}
 
 {phang}
-{opt qinf:inite} specifies that the distribution that should be used should be the limit of the skewed generalized t distribution as the parameter q becomes arbitrarily large (i.e. the skewed generalized error distribution)
+{opt qinf:inite} specifies that the distribution that should be used should be the limit of the skewed generalized t distribution as the parameter q becomes arbitrarily large (i.e. the skewed generalized error distribution).
 
 {phang}
 {opt varadj:ust} indicates that that parameter sigma should be scaled so that the variance is sigma^2. This option can only be used if p*q > 2.
@@ -72,6 +73,13 @@ maximization process{p_end}
 
 {phang}
 {opt initial} list of numbers that specifies the initial values of the coefficients.
+
+{phang}
+{cmd:constraints(}{it:{help numlist}}}
+specifies the linear constraints to be
+applied during estimation.  {opt constraints(numlist)} specifies the
+constraints by number. Constraints are defined using the {cmd:constraint}
+command; see {manhelp constraint R}.
 
 {phang}{marker noninteractive_maxopts}
 {it:maximize_options}:
@@ -107,6 +115,14 @@ In cases where the convergence is difficult, try to use the option {cmd: techniq
 {phang}{cmd:. gen y = 1 + 2*x1 + 3*x2 + rnormal(0,1)}{p_end}
 
 {phang}{cmd:. sgtreg y x1 x2, technique(bfgs)}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, technique(bfgs) qinf}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, gamma(x1) delta(x2) technique(bfgs) qinf}{p_end}
+{phang}{cmd:. sgtreg y x1 x2, gcons dcons technique(bfgs) qinf}{p_end}
+
+{phang}{cmd:. constraint define 1 [delta]_cons=0}{p_end}
+{phang}{cmd:. constraint define 2 [p]_cons=2}{p_end}
+
+{phang}{cmd:. sgtreg y x1 x2, gcons dcons const(1 2) technique(bfgs) qinf}{p_end}
 
 {marker references}{...}
 {title:References}
