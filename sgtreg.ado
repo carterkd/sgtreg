@@ -36,7 +36,10 @@ version 12.0
 			forval i = 1/`ngamma' {
 				local initial `initial' 0 
 			}
-			local temp = ln(e(rmse)) + ln(2)/2
+			local temp = ln(e(rmse)) 
+			if "`qinfinite'" == "" {
+				local temp = `temp' + ln(2)/2
+			}
 			local initial `initial' `temp'
 			forval i = 1/`ndelta' {
 				local initial `initial' 0 
@@ -63,9 +66,9 @@ version 12.0
 			ml model lf `evaluator' (beta: `depvar' = `regs') (gamma: `gammavars') (delta: `deltavars') /p /q if `touse', maximize `technique' init(`initial', copy) `difficult' `iterate' `log' `trace' `gradient' `showstep' `hessian' `showtolerance' `tolerance' `ltolerance' `nrtolerance'
 		}
 		else {
-			local evaluator gedevaluator
+			local evaluator sgedevaluator
 			if "`varadjust'" != "" {
-				local evaluator gedevaluatorva
+				local evaluator sgedevaluatorva
 			}
 			ml model lf `evaluator' (beta: `depvar' = `regs') (gamma: `gammavars') (delta: `deltavars') /p if `touse', maximize `technique' init(`initial', copy) `difficult' `iterate' `log' `trace' `gradient' `showstep' `hessian' `showtolerance' `tolerance' `ltolerance' `nrtolerance'			
 		}
