@@ -23,7 +23,7 @@
 [{it:in}]
 [{cmd:,} {it:options}]
 
-{synoptset 20 tabbed}{...}
+{synoptset 24 tabbed}{...}
 {synopthdr}
 {synoptline}
 {syntab:Main}
