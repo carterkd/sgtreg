@@ -1,5 +1,5 @@
 program sgtevaluatorva
-version 12.0
+version 13
 	args lnf beta sigma lambda p q
 	tempvar x s l m 
 	qui gen double `x' = $ML_y1 - (`beta')

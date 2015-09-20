@@ -1,5 +1,5 @@
 program sgtreg, eclass
-version 12.0
+version 13.0
 	if replay() {
 		display "Replay not implemented"
 	}

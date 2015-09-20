@@ -1,4 +1,4 @@
-v 1.0
+v 2.0
 d Carter Davis, University of Chicago Booth School of Business
 p sgtreg Regression with the Skewed Generalized T Distribution
 

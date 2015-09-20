@@ -1,7 +1,20 @@
-v 1.0
+v 2.0
 d sgtreg Skewed Generalized T Regression Package
-d Carter Davis, University of Chicago Booth School of Business
-d Description: https://raw.githubusercontent.com/carterkd/sgtreg/master/README.md 
+d {bf:Carter Davis, University of Chicago Booth School of Business}
+d The standard linear regression model typically assumes that the 
+d errors are independently and identically distributed. The 
+d corresponding ordinary least squares (OLS) estimator will yield 
+d the best linear approximation of the conditional mean. This 
+d regression method, which uses the skewed generalize t (SGT) 
+d distribution, can accommodate situations in which the conditional 
+d mean, variance and skewness of a variable of interest may vary as 
+d a function of independent variables. This method is described in 
+d the paper "A Generalized Regression Specification using the Skewed 
+d Generalized T Distribution", by Carter Davis, James McDonald, and 
+d Daniel Walton.
+d 
+d Support: cdavis40@chicagobooth.edu
+d 
 p sgtreg Regression with the Skewed Generalized T Distribution
 f sgtevaluatorva.ado
 f sgtevaluatorva.sthlp

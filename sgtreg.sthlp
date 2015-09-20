@@ -1,5 +1,5 @@
 ﻿{smcl}
-{* *! version 1.0  03aug2015}{...}
+{* *! version 2.0  19sep2015}{...}
 {viewerjumpto "Syntax" "examplehelpfile##syntax"}{...}
 {viewerjumpto "Description" "examplehelpfile##description"}{...}
 {viewerjumpto "Options" "examplehelpfile##options"}{...}
@@ -15,7 +15,7 @@
 {marker syntax}{...}
 {title:Syntax}
 
-{p 8 17 2}
+{p 8 20 2}
 {cmdab:sgtreg}
 {depvar}
 {indepvars}
