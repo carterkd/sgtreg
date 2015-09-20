@@ -1,6 +1,6 @@
 v 2.0
 d sgtreg Skewed Generalized T Regression Package
-d {bf:Carter Davis, University of Chicago Booth School of Business}
+d Carter Davis, University of Chicago Booth School of Business
 d The standard linear regression model typically assumes that the 
 d errors are independently and identically distributed. The 
 d corresponding ordinary least squares (OLS) estimator will yield 
